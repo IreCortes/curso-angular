@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { DbzModule } from './dbz/dbz.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SidebarComponent],
   imports: [BrowserModule, DbzModule],
   providers: [],
   bootstrap: [AppComponent],
