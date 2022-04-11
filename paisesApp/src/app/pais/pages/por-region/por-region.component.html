@@ -1,0 +1,48 @@
+<h2>Por Región</h2>
+<hr />
+<div class="row">
+  <div class="col">
+    <!-- <button
+      *ngFor="let region of regiones"
+      class="btn btn-outline-primary"
+      [ngClass]="{
+        'btn-primary': regionActiva === region,
+        'btn-outline-primary': regionActiva !== region
+      }"
+      (click)="activaRegion(region)"
+    >
+      {{ region }}
+    </button> -->
+    <button
+      *ngFor="let region of regiones"
+      class="btn"
+      [class]="getClaseCSS(region)"
+      (click)="activaRegion(region)"
+    >
+      {{ region }}
+    </button>
+  </div>
+</div>
+
+<!-- <hr />
+
+<div class="row">
+  <div class="col">
+    <app-search-bar
+      (onEnter)="buscar($event)"
+      (onDebounce)="buscarRecomendados($event)"
+      [placeholder]="placeholder"
+    ></app-search-bar>
+  </div>
+</div> -->
+
+<hr />
+<div *ngIf="hayError" class="alert alert-danger">
+  No se encontró nada con ese término
+</div>
+
+<div class="row">
+  <div class="col">
+    <app-pais-tabla [paises]="paises"></app-pais-tabla>
+  </div>
+</div>
