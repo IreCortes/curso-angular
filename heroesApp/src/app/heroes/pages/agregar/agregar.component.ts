@@ -33,6 +33,7 @@ export class AgregarComponent implements OnInit {
   ngOnInit(): void {}
 
   addHeroe() {
+    console.log(this.heroe);
     this.heroeService
       .postHeroe(this.heroe)
       .subscribe((resp) => console.log(resp));

@@ -24,6 +24,7 @@ export class HeroesService {
   }
 
   postHeroe(heroe: Heroe): Observable<Heroe> {
+    console.log(heroe);
     return this.http.post<Heroe>(`${this.apiUrl}`, heroe);
   }
 }
