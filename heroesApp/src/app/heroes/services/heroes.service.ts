@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class HeroesService {
-  apiUrl: string = environment.baseUrl + '/heroes';
+  private apiUrl: string = environment.baseUrl + '/heroes';
   constructor(private http: HttpClient) {}
 
   getHeroes(): Observable<Heroe[]> {
@@ -20,6 +20,10 @@ export class HeroesService {
   }
 
   getSugerencias(termino: String): Observable<Heroe[]> {
-    return this.http.get<Heroe[]>(`${this.apiUrl}?q=${termino}&_limit=6}`);
+    return this.http.get<Heroe[]>(`${this.apiUrl}?q=${termino}&_limit=6`);
+  }
+
+  postHeroe(heroe: Heroe): Observable<Heroe> {
+    return this.http.post<Heroe>(`${this.apiUrl}`, heroe);
   }
 }

@@ -20,9 +20,14 @@
         #auto="matAutocomplete"
         (optionSelected)="opcionSeleccionada($event)"
       >
-        <mat-option *ngFor="let heroe of heroes" [value]="heroe">
-          {{ heroe.superhero }}
-        </mat-option>
+        <span *ngIf="!hayError; else terminoError">
+          <mat-option *ngFor="let heroe of heroes" [value]="heroe">
+            {{ heroe.superhero }}
+          </mat-option>
+        </span>
+        <ng-template #terminoError>
+          <mat-option> No se encontró el término {{ termino }} </mat-option>
+        </ng-template>
       </mat-autocomplete>
     </mat-form-field>
   </div>
